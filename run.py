@@ -24,43 +24,47 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
 def number_guessing_game():
     num = random.randint(1, 100)
     guesses = 0
-    while guesses < 7:
+    max_attempts = 7
+    while guesses < max_attempts:
         print(num)
-        answer = int(input("Guess a number between 1 and 100\n"))
+        answer = None
+        while True:
+            try:
+                answer = int(input("Guess a number between 1 and 100\n"))
+                break
+            except ValueError:
+                print("Please enter a valid integer.")
+        
         guesses += 1
         if answer == num:
             print("You won!")
-            print(f"Do you want to save your score? You guessed {guesses} out of 7 times correctly.")
-            save_score = str(input("(yes/no): \n").lower())
+            print(f"Do you want to save your score? You guessed {guesses} out of {max_attempts} times correctly.")
+            save_score = input("(yes/no): \n").lower()
             if save_score == "yes":
                 username = input("Enter your name: ")
                 fill_scoreboard(username, guesses)
-                play_again = input("Do you want to try again? (yes/no): ").lower()
-                if play_again == "yes":
-                    number_guessing_game()
-                elif play_again == "no":
-                    quit()
-                else:
-                    print("Invalid option, restarting...")
+                play_again()
             elif save_score == "no":
-                print("Press run to play again.")
-                number_guessing_game()
+                print("Closing game, thanks for playing.")
+                return
             else:
-                print("Invalid option, restarting...")
+                print("Invalid option, restarting game...")
         elif answer < num:
-            print("Try Higher\nYou have used", int(guesses), "out of 7 guesses.")
+            print("Try Higher\nYou have used", int(guesses), "out of {max_attempts} guesses.")
         elif answer > num:
-            print("Try Lower\nYou have used", int(guesses), "out of 7 guesses.")
+            print("Try Lower\nYou have used", int(guesses), "out of {max_attempts} guesses.")
+    print("You have no guesses left, the number was", num)
+    play_again()
+
+def play_again():
+    play_again = input("Do you want to try again? (yes/no): ").lower()
+    if play_again == "yes":
+        number_guessing_game()
+    elif play_again == "no":
+        quit()
     else:
-        print("You have no guesses left, the number was", num)
-        play_again = input("Do you want to try again? (yes/no): ").lower()
-        if play_again == "yes":
-            number_guessing_game()
-        elif play_again == "no":
-            quit()
-        else:
-            print("Invalid option, game closing...")
-            quit()
+        print("Invalid option, game restarting...")
+        play_again()
 
 def welcome_message():
     print("Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
