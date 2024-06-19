@@ -1,6 +1,7 @@
-
 import gspread
 import random
+import datetime
+
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -14,11 +15,19 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Scores')
 
+
 def fill_scoreboard(username, score, worksheet='Sheet1'):
     print(f"Updating scoreboard...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row([username, score])
+    now = datetime.datetime.now().strftime('%Y-%m-%d')
+    worksheet_to_update.append_row([username, score, now])
+    
     print("Scoreboard updated successfully\n")
+"""def fill_scoreboard(username, score, worksheet='Sheet1'):
+    print(f"Updating scoreboard...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row([username, score])
+    print("Scoreboard updated successfully\n")"""
 
 def number_guessing_game():
     num = random.randint(1, 100)
