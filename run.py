@@ -1,7 +1,6 @@
 import gspread
 import random
 import datetime
-
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -15,14 +14,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Scores')
 
-
 def fill_scoreboard(username, score, worksheet='Sheet1'):
     print(f"Updating scoreboard...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     now = datetime.datetime.now().strftime('%Y-%m-%d')
     worksheet_to_update.append_row([username, score, now])
     print("Scoreboard updated successfully\n")
-
 
 def number_guessing_game():
     num = random.randint(1, 100)
@@ -38,9 +35,18 @@ def number_guessing_game():
             if save_score == "yes":
                 username = input("Enter your name: ")
                 fill_scoreboard(username, guesses)
+                play_again = input("Do you want to try again? (yes/no): ").lower()
+                if play_again == "yes":
+                    number_guessing_game()
+                elif play_again == "no":
+                    quit()
+                else:
+                    print("Invalid option, restarting...")
             elif save_score == "no":
                 print("Press run to play again.")
-            break
+                number_guessing_game()
+            else:
+                print("Invalid option, restarting...")
         elif answer < num:
             print("Try Higher\nYou have used", int(guesses), "out of 7 guesses.")
         elif answer > num:
@@ -51,12 +57,23 @@ def number_guessing_game():
         if play_again == "yes":
             number_guessing_game()
         elif play_again == "no":
-            quit
+            quit()
         else:
             print("Invalid option, game closing...")
-            quit
+            quit()
 
+def welcome_message():
+    print("Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
+    print("You have 7 guesses and if you win you have the option to save your score ")
+    print("Do you want to play?")
+    ready = input("(yes/no): \n").lower()
+    if ready == "yes":
+        number_guessing_game()
+    elif ready == "no":
+        print("Closing game...")
+        quit()
+    else:
+        print("Invalid option, restarting...")
+        welcome_message()
 
-        
-
-number_guessing_game()
+welcome_message()
