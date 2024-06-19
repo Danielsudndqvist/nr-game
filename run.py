@@ -21,13 +21,8 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
     worksheet_to_update = SHEET.worksheet(worksheet)
     now = datetime.datetime.now().strftime('%Y-%m-%d')
     worksheet_to_update.append_row([username, score, now])
-    
     print("Scoreboard updated successfully\n")
-"""def fill_scoreboard(username, score, worksheet='Sheet1'):
-    print(f"Updating scoreboard...\n")
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row([username, score])
-    print("Scoreboard updated successfully\n")"""
+
 
 def number_guessing_game():
     num = random.randint(1, 100)
@@ -55,5 +50,8 @@ def number_guessing_game():
         play_again = input("Do you want to try again? (yes/no): ").lower()
         if play_again == "yes":
             number_guessing_game()
+
+def sort_scores_by_lowest_to_highest():
+    SHEET.worksheet('Sheet1').sort((1, 'asc'))
 
 number_guessing_game()
