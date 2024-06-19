@@ -50,8 +50,13 @@ def number_guessing_game():
         play_again = input("Do you want to try again? (yes/no): ").lower()
         if play_again == "yes":
             number_guessing_game()
+        elif play_again == "no":
+            quit
+        else:
+            print("Invalid option, game closing...")
+            quit
 
-def sort_scores_by_lowest_to_highest():
-    SHEET.worksheet('Sheet1').sort((1, 'asc'))
+
+        
 
 number_guessing_game()
