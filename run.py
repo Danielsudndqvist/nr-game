@@ -24,12 +24,12 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
 def number_guessing_game():
     num = random.randint(1, 100)
     guesses = 0
-    max_attempts = 7
+    max_attempts = 5
     while guesses < max_attempts:
-        print(num)
         answer = None
         while True:
             try:
+                print(num)
                 answer = int(input("Guess a number between 1 and 100\n"))
                 break
             except ValueError:
@@ -38,10 +38,10 @@ def number_guessing_game():
         guesses += 1
         if answer == num:
             print("You won!")
-            print(f"Do you want to save your score? You guessed {guesses} out of {max_attempts} times correctly.")
+            print(f"Do you want to save your score? You guessed {guesses} out of 5 times correctly.")
             save_score = input("(yes/no): \n").lower()
             if save_score == "yes":
-                username = input("Enter your name: ")
+                username = input("Enter your name: \n")
                 fill_scoreboard(username, guesses)
                 play_again()
             elif save_score == "no":
@@ -50,17 +50,18 @@ def number_guessing_game():
             else:
                 print("Invalid option, restarting game...")
         elif answer < num:
-            print("Try Higher\nYou have used", int(guesses), "out of {max_attempts} guesses.")
+            print(f"Try Higher\nYou have used", int(guesses), "out of 5 guesses.")
         elif answer > num:
-            print("Try Lower\nYou have used", int(guesses), "out of {max_attempts} guesses.")
+            print(f"Try Lower\nYou have used", int(guesses), "out of 5 guesses.")
     print("You have no guesses left, the number was", num)
     play_again()
 
 def play_again():
-    play_again = input("Do you want to try again? (yes/no): ").lower()
+    play_again = input("Do you want to try again? (yes/no): \n").lower()
     if play_again == "yes":
         number_guessing_game()
     elif play_again == "no":
+        print("Closing game...")
         quit()
     else:
         print("Invalid option, game restarting...")
@@ -68,7 +69,7 @@ def play_again():
 
 def welcome_message():
     print("Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
-    print("You have 7 guesses and if you win you have the option to save your score ")
+    print("You have 5 guesses and if you win you have the option to save your score ")
     print("Do you want to play?")
     ready = input("(yes/no): \n").lower()
     if ready == "yes":
