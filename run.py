@@ -34,6 +34,8 @@ def number_guessing_game():
                 break
             except ValueError:
                 print("Please enter a valid integer.")
+                continue
+                
         
         guesses += 1
         if answer == num:
@@ -49,6 +51,8 @@ def number_guessing_game():
                 return
             else:
                 print("Invalid option, restarting game...")
+                quit()
+                welcome_message()
         elif answer < num:
             print(f"Try Higher\nYou have used", int(guesses), "out of 5 guesses.")
         elif answer > num:
@@ -57,15 +61,17 @@ def number_guessing_game():
     play_again()
 
 def play_again():
-    play_again = input("Do you want to try again? (yes/no): \n").lower()
-    if play_again == "yes":
-        number_guessing_game()
-    elif play_again == "no":
-        print("Closing game...")
-        quit()
-    else:
-        print("Invalid option, game restarting...")
-        play_again()
+    while True:
+        play_again_choice = input("Do you want to try again? (yes/no): \n").lower()
+        if play_again_choice == "yes":
+            number_guessing_game()
+        elif play_again_choice == "no":
+            print("Closing game...")
+            quit()
+        else:
+            print("Invalid option, please try again.")
+            quit()
+            play_again()
 
 def welcome_message():
     print("Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
@@ -78,7 +84,8 @@ def welcome_message():
         print("Closing game...")
         quit()
     else:
-        print("Invalid option, restarting...")
+        print("Invalid option, restarting game...")
+        quit()
         welcome_message()
 
 welcome_message()
