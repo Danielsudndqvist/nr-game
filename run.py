@@ -105,7 +105,7 @@ def welcome_message():
             number_guessing_game()
         elif ready == "no":
             print(Fore.RED + "Closing game...")
-            return
+            quit()
         else:
             print(Fore.RED + "Invalid option, please try again.")
 
