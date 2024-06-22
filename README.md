@@ -2,23 +2,27 @@
 
 ![Project Logo](path/to/logo.png)
 
-## Description
-
-A brief description of your project. Explain what the project does, its purpose, and why it exists. This section should give readers a high-level overview of your project.
+## Features
+- Interactive number guessing game.
+- Score tracking and saving to Google Sheets.
+- Display of top scores from the Google Sheet.
+- User-friendly interface with colored console output for better readability.
 
 ## Installation
+1. Clone the repository or download the project files.
+2. Ensure you have Python installed on your system.
+3. Install the required libraries by running: pip install gspread openpyxl colorama
+4. 4. Set up a Google Cloud Project and enable the Google Sheets API.
+5. Create a `creds.json` file with your Google Service Account credentials and ensure it's placed in the project directory.
+
+## Usage
+1. Run the script.
+2. Follow the on-screen instructions to play the game, view high scores, or exit the game.
 
 ### Prerequisites
-
-List any prerequisites needed to run your project. This may include specific versions of Python, libraries, or tools.
-
 - Python >= 3.8
-- Required Libraries (`requests`, `numpy`, etc.)
-
-### Installation Steps
-
-Provide step-by-step instructions on how to install and set up your project. Include commands to clone the repository, install dependencies, and configure any necessary environment variables.
-
+- Google Cloud Platform account
+- A Google Sheet for storing scores (`creds.json` should contain the path to this sheet).
 
 ## Usage
 
