@@ -108,9 +108,10 @@ def play_again():
             number_guessing_game()
         elif play_again_choice == "no":
             print(Fore.RED + "Closing game...")
-            return
+            quit()
         else:
             print(Fore.RED + "Invalid option, please try again.")
+            play_again()
 
 def welcome_message():
     """
