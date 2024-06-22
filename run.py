@@ -1,24 +1,30 @@
-import gspread
-import random
-import datetime
-from google.oauth2.service_account import Credentials
-from colorama import Fore, Style, init
+# Import required libraries
+import gspread  # Google Sheets API client library
+import random   # Random number generation
+import datetime # Date and time operations
+from google.oauth2.service_account import Credentials # Authentication for Google APIs
+from colorama import Fore, Style, init # Color formatting for terminal output
 
-# Initialize colorama
+# Initialize colorama for colored console output
 init(autoreset=True)
 
+# Define scopes for accessing Google Sheets and Drive APIs
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive",
 ]
 
+# Authenticate using service account credentials
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Scores')
 
 def sort_scores():
+    """
+    Sorts the scores in ascending order and updates the Google Sheet with the sorted scores.
+    """
     worksheet = SHEET.worksheet('Sheet1')
     data = worksheet.get_all_values()
     
@@ -42,6 +48,9 @@ def sort_scores():
     return sorted_scores
 
 def fill_scoreboard(username, score, worksheet='Sheet1'):
+    """
+    Adds a new score entry to the specified worksheet and sorts the scores.
+    """
     print(Fore.BLUE + "Updating scoreboard...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     now = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -50,6 +59,9 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
     sort_scores()
 
 def number_guessing_game():
+    """
+    Implements a number guessing game where the player has to guess a number between 1 and 100 within 5 attempts.
+    """
     num = random.randint(1, 100)
     guesses = 0
     max_attempts = 5
@@ -87,6 +99,9 @@ def number_guessing_game():
     play_again()
 
 def play_again():
+    """
+    Asks the player if they want to play another round after finishing the current one.
+    """
     while True:
         play_again_choice = input(Fore.YELLOW + "Do you want to try again? (yes/no): ").lower()
         if play_again_choice == "yes":
@@ -98,6 +113,9 @@ def play_again():
             print(Fore.RED + "Invalid option, please try again.")
 
 def welcome_message():
+    """
+    Displays the main menu allowing the player to start a new game, view high scores, or quit the game.
+    """
     print(Fore.CYAN + "Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
     print("You have 5 guesses, and if you win, you have the option to save your score.")
     print("Menu:")
@@ -118,6 +136,9 @@ def welcome_message():
             print(Fore.RED + "Invalid option, please try again.")
 
 def highscore():
+    """
+    Displays the top 5 high scores from the sorted scores list.
+    """
     print("Loading highscores...")
     sorted_scores = sort_scores()
     print(Fore.CYAN + "Top 5 High Scores:")
