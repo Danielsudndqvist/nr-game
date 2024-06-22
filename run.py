@@ -101,26 +101,29 @@ def play_again():
 def welcome_message():
     print(Fore.CYAN + "Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
     print("You have 5 guesses, and if you win, you have the option to save your score.")
+    print("Menu:")
+    print("For start game press :1")
+    print("For top 5 highscores press :2")
+    print("To quit game press :3")
     while True:
-        ready = input(Fore.YELLOW + "Do you want to play? (yes/no): ").lower()
-        if ready == "yes":
+        ready = int(input(Fore.YELLOW + "Enter your choice: "))
+        if ready == 1:
             number_guessing_game()
-        elif ready == "no":
+        elif ready == 2:
+            highscore()
+            quit()
+        elif ready == 3:
             print(Fore.RED + "Closing game...")
             quit()
         else:
             print(Fore.RED + "Invalid option, please try again.")
 
 def highscore():
+    print("Loading highscores...")
     sorted_scores = sort_scores()
     print(Fore.CYAN + "Top 5 High Scores:")
     for i, score in enumerate(sorted_scores[:5], start=1):
         username, score_value, date = score
         print(f"{i}. {username}: {score_value} on {date}")
 
-# Uncomment the line below to start the game with a welcome message
-# welcome_message()
-
-# To display high scores
-highscore()
-
+welcome_message()
