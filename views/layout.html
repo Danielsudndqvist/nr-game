@@ -8,15 +8,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js"></script>
-    <title>Python Terminal by Code Institute</title>
+    <title>Dream Achiever</title>
+    <!-- Favicon -->
+    <link href="https://res.cloudinary.com/dmntcacug/image/upload/v1700309413/apple-touch-icon_mtiphb.png" rel="icon" sizes="180x180" >
+    <link href="https://res.cloudinary.com/dmntcacug/image/upload/v1700309414/favicon-32x32_khhesx.png" rel="icon" sizes="32x32" >
+    <link href="https://res.cloudinary.com/dmntcacug/image/upload/v1700309413/favicon-16x16_dhwz5u.png" rel="icon" sizes="16x16" >
     <style>
         body {
+            margin: 0;
             font-family: Arial;
+            background-color: rgb(100, 131, 163);
+            background-image: url('https://res.cloudinary.com/dmntcacug/image/upload/v1699960611/pexels-pixabay-417045_g2z5bm.webp');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+        }
+
+        #terminal {
+            border: 6px solid black;
+            border-radius: 4px;
+            padding-right: 23px;
         }
 
         /**
@@ -89,7 +105,7 @@
             top: 0;
             bottom: 0;
             background-color: rgb(0, 0, 0);
-            width: 730px;
+            width: 743px;
         }
 
         .xterm .xterm-screen {
@@ -166,13 +182,10 @@
             background-color: rgb(17, 77, 138);
             border: 1px solid rgb(2, 42, 83);
             color: rgb(175, 216, 255);
-            justify-content: center;
-            align-items: center;
             text-transform: uppercase;
             margin: 10px;
             border-radius: 8px;
             font-family: sans-serif;
-        }
         }
     </style>
 </head>
