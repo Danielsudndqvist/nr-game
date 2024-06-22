@@ -51,7 +51,6 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
 
 def number_guessing_game():
     num = random.randint(1, 100)
-    print(num)  # For debugging purposes; remove this line in production
     guesses = 0
     max_attempts = 5
     while guesses < max_attempts:
@@ -102,9 +101,9 @@ def welcome_message():
     print(Fore.CYAN + "Hello!\nThis is a game where the goal is to guess the correct number between 1 and 100.")
     print("You have 5 guesses, and if you win, you have the option to save your score.")
     print("Menu:")
-    print("For start game press :1")
-    print("For top 5 highscores press :2")
-    print("To quit game press :3")
+    print("Start game press :1")
+    print("Top 5 highscores press :2")
+    print("Quit game press :3")
     while True:
         ready = int(input(Fore.YELLOW + "Enter your choice: "))
         if ready == 1:
