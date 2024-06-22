@@ -38,6 +38,8 @@ def sort_scores():
     worksheet.append_row(data[0])
     for row in sorted_scores:
         worksheet.append_row(row)
+    
+    return sorted_scores
 
 def fill_scoreboard(username, score, worksheet='Sheet1'):
     print(Fore.BLUE + "Updating scoreboard...\n")
@@ -49,7 +51,7 @@ def fill_scoreboard(username, score, worksheet='Sheet1'):
 
 def number_guessing_game():
     num = random.randint(1, 100)
-    print(num)
+    print(num)  # For debugging purposes; remove this line in production
     guesses = 0
     max_attempts = 5
     while guesses < max_attempts:
@@ -109,4 +111,16 @@ def welcome_message():
         else:
             print(Fore.RED + "Invalid option, please try again.")
 
-welcome_message()
+def highscore():
+    sorted_scores = sort_scores()
+    print(Fore.CYAN + "Top 5 High Scores:")
+    for i, score in enumerate(sorted_scores[:5], start=1):
+        username, score_value, date = score
+        print(f"{i}. {username}: {score_value} on {date}")
+
+# Uncomment the line below to start the game with a welcome message
+# welcome_message()
+
+# To display high scores
+highscore()
+
