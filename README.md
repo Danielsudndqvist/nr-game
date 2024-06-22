@@ -24,9 +24,17 @@
 - Google Cloud Platform account
 - A Google Sheet for storing scores (`creds.json` should contain the path to this sheet).
 
-## Usage
+## Bugs
+# Solved bugs
+A large number of bugs was accidentally created during development and had to be fixed. Fixes included:
 
-Include examples of how to use your project. This could be command-line instructions, code snippets, or links to interactive demos.
+looking through code line by line
+using print() statements to see what was acctually going on
+review commit history
+search google for possible solutions
+a lot of trial and error
+# Unfixed bugs
+None
 
 
 ## Testing
