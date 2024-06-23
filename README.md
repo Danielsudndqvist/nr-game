@@ -57,6 +57,7 @@ None
 ## Manual Testing 
 
 | Feature tested |Expected outcome | Result |
+| --- | --- | --- |
 | Menu option 3 | Quit game | Pass |
 ||||
 ||||
