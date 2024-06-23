@@ -1,4 +1,5 @@
 # Nr-game
+https://nr-guessing-game-679e18c5bdb3.herokuapp.com/
 ## Description
 This project is a number guessing game where players attempt to guess a randomly generated number between 1 and 100 within a maximum of 5 attempts. The main features include:
 
@@ -66,6 +67,7 @@ None
 
 
 ## Deployment
+https://nr-guessing-game-679e18c5bdb3.herokuapp.com/
 
 Deployment to Heroku
 - Log in (or sign up) to Heroku. (https://www.heroku.com/)
