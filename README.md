@@ -37,6 +37,9 @@ None
 
 
 ## Testing
+### Code validator 
+![image](https://github.com/Danielsudndqvist/nr-game/assets/163173315/3e31b3c7-c5d3-476b-bfcb-ad57cb6ddf87)
+
 
 
 
