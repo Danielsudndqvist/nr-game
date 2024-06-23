@@ -62,6 +62,8 @@ None
 | Win | Play again-yes | Pass |
 | Save score-no | Restart game | Pass |
 | Save score-yes | Update scoreboard | Pass |
+| Input string | Please enter a valid integer | Pass |
+
 
 ## Deployment
 
