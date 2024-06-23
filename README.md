@@ -59,10 +59,14 @@ None
 | Feature tested |Expected outcome | Result |
 | --- | --- | --- |
 | Menu option 3 | Quit game | Pass |
-||||
-||||
-||||
-||||
+| Menu option 2 | Print top 5 | Pass |
+| Menu option 1 | Play game | Pass |
+| Guess too low | Try higher | Pass |
+| Guess too high | Try lower | Pass |
+| Lose | Play again-no | Pass |
+| Win | Play again-yes | Pass |
+| Save score-no | restart game | Pass |
+| Save score-yes | Uppdate scoreboard | Pass |
 
 
 ## Depoyment
