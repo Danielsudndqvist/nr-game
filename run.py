@@ -95,7 +95,7 @@ def number_guessing_game():
                 welcome_message()
         elif answer < num:
             print(Fore.GREEN + f"Try Higher\nYou have used {guesses}"
-                  f"out of {max_attempts} guesses.")
+                  f" out of {max_attempts} guesses.")
         elif answer > num:
             print(Fore.GREEN + f"Try Lower\nYou have used"
                   f" {guesses} out of {max_attempts} guesses.")
