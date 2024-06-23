@@ -1,4 +1,16 @@
 # Nr-game
+## Description
+This project is a number guessing game where players attempt to guess a randomly generated number between 1 and 100 within a maximum of 5 attempts. The main features include:
+
+### Number Guessing Game: 
+Players guess a number within a range, receiving feedback on whether to guess higher or lower.
+
+### Score Saving: 
+If a player guesses correctly, they are prompted to save their score along with their name and the date.
+
+### Scoreboard Management: 
+Scores are saved in a Google Sheets document. The scores are sorted and managed to display the top scores.
+High Score Display: The top 5 high scores can be viewed from the main menu.
 
 
 ## Features
@@ -10,8 +22,8 @@
 ## Installation
 1. Clone the repository or download the project files.
 2. Ensure you have Python installed on your system.
-3. Install the required libraries by running: pip install gspread openpyxl colorama
-4. 4. Set up a Google Cloud Project and enable the Google Sheets API.
+3. Install the required libraries by running: pip install gspread and pip install colorama
+4. Set up a Google Cloud Project and enable the Google Sheets API.
 5. Create a `creds.json` file with your Google Service Account credentials and ensure it's placed in the project directory.
 
 ## Usage
@@ -19,7 +31,7 @@
 2. Follow the on-screen instructions to play the game, view high scores, or exit the game.
 
 ### Prerequisites
-- Python >= 3.8
+- Python 3
 - Google Cloud Platform account
 - A Google Sheet for storing scores (`creds.json` should contain the path to this sheet).
 
@@ -41,6 +53,15 @@ None
 ![image](https://github.com/Danielsudndqvist/nr-game/assets/163173315/3e31b3c7-c5d3-476b-bfcb-ad57cb6ddf87)
 
 
+
+## Manual Testing 
+
+| Feature tested |Expected outcome | Result |
+| Menu option 3 | Quit game | Pass |
+||||
+||||
+||||
+||||
 
 
 ## Depoyment
