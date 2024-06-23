@@ -1,6 +1,5 @@
-# Project Title
+# Nr-game
 
-![Project Logo](path/to/logo.png)
 
 ## Features
 - Interactive number guessing game.
@@ -72,5 +71,12 @@ Press enter.
 
 
 ## Credits
+
+### Websites & Programs
+Chatgpt - Used to help identify problems in code and possible way to solve them.
+Github - Created repository and stored files here after commits.
+Heroku - For deploying.
+Gitpod - Wrote code and did commits to Github from here.
+W3 School Read and used as a guide for some code.
 
 
